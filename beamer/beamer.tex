@@ -1,0 +1,63 @@
+\documentclass[UTF8]{beamer}
+\usetheme{CambridgeUS}
+\usecolortheme{beaver}
+
+\logo{\includegraphics[scale=0.3]{visionouc.jpg}}
+\usepackage[BoldFont,SlantFont,CJKnumber,CJKchecksingle]{xeCJK} 
+\usepackage{CJKfntef}
+\usepackage{/Users/jinna/Desktop/study/github/Template/styles/zhfontcfg}%中文�
+\usepackage{/Users/jinna/Desktop/study/github/Template/styles/visionouclistings}
+\usepackage{/Users/jinna/Desktop/study/github/Template/styles/visionouccfg}
+\setCJKmainfont{Adobe Kaiti Std}
+\setCJKmonofont{Adobe Fangsong Std}
+\begin{document}
+\title{title}
+\author{Frogge}
+\institute{XX}
+\date{\today}
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}\frametitle{Three default block styles}
+\begin{block}{Block}
+This is a block
+\end{block}
+
+\begin{alertblock}{Alert block}
+This is an alert block.
+
+\end{alertblock}
+
+\begin{exampleblock}{Example block}
+This is an example block.??
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}\frametitle{User-defined blcok styles}
+
+\setbeamercolor{uppercol}{fg=white,bg=green!80!black}%
+\setbeamercolor{lowercol}{fg=black,bg=green!20}%
+\begin{beamerboxesrounded}[upper=uppercol,lower=lowercol,shadow=true]{Something}
+This is a user-defined blcok.
+\end{beamerboxesrounded}
+        
+\end{frame}
+
+\begin{frame}\frametitle{Columns}
+\begin{columns}
+  \begin{column}{0.48\textwidth}
+    \begin{alertblock}{Alert block}
+      This is an alert block.
+    \end{alertblock}
+  \end{column}
+
+  \begin{column}{0.48\textwidth}
+    \begin{exampleblock}{Example block}
+      This is an example block.
+    \end{exampleblock}
+  \end{column}
+\end{columns}
+\end{frame}
+
+\end{document}
