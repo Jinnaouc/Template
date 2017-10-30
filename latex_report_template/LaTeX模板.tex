@@ -1,67 +1,103 @@
 \documentclass{article}
-\usepackage{CTEX}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[a4paper]{geometry}
+%package
+
+%geometry
+\usepackage[a4paper]{geometry}%调整页面边距
 \geometry{left=3cm,right=3cm,top=3cm,bottom=3cm}
 \linespread{1.5}
-\usepackage{fancyhdr}
+\usepackage{fancyhdr}%梦幻页眉
 
-\usepackage{fontspec}
+%fonts
+\usepackage{fontspec}%字体库
 \defaultfontfeatures{Mapping=tex-text}
 \usepackage{xunicode,xltxtra}
-\usepackage[BoldFont,SlantFont,CJKnumber,CJKchecksingle]{xeCJK} \usepackage{CJKfntef}
-\usepackage{bm} 
+\usepackage[BoldFont,SlantFont,CJKnumber,CJKchecksingle]{xeCJK}  % \CJKnumber{12345}: 一万二千三百四十五
+\usepackage{CJKfntef}
+\usepackage{bm} %公式中的粗体字符\boldsymbol
 \usepackage{pifont}
+
+%color
 \usepackage{color,xcolor}
 \definecolor{GREEN}{RGB}{25,180,68}
 \definecolor{YELLOW}{RGB}{255,255,224}
-\definecolor{BLUE}{RGB}{65,105,225}
+\definecolor{BLUE}{RGB}{9,148,234}
 \definecolor{RED}{RGB}{139,0,0}
 \definecolor{DRED}{RGB}{128,0,0}
 \definecolor{GREY}{RGB}{128,128,128}
 
+
+%math
 \usepackage{amsmath,amsfonts,amssymb}
 
+%graphics
 \usepackage[americaninductors,europeanresistors]{circuitikz}
-\usepackage{tikz}
-\usetikzlibrary{positioning,arrows,shadows,shapes,calc,mindmap,trees,backgrounds}
-\usepackage{graphicx}
-\usepackage{subfigure} 
-\usepackage{colortbl,dcolumn}  
+\usepackage{tikz}%可以绘制各种坐标图，方格图
+\usetikzlibrary{positioning,arrows,shadows,shapes,calc,mindmap,trees,backgrounds}  % placements=positioning
+\usepackage{graphicx}%\includegraphics插图命令
+\usepackage{subfigure}  %%图形或表格并排排列
+
+% table
+\usepackage{colortbl,dcolumn}  %% 彩色表格
 \usepackage{multirow}
 \usepackage{multicol}
 \usepackage{booktabs}
-\usepackage{fancyvrb}
-\usepackage{listings}
 
-\usepackage{titlesec}
+% code
+\usepackage{fancyvrb}%漂亮的代码包
+\usepackage{listings}%加入代码
+
+% ref
+\usepackage{hyperref}%扩展参考文献，目录功能和加入超链接。
+
+% title
+\usepackage{titlesec}%花哨的章节标题
+
 \usepackage{etoolbox}
 \makeatletter
 \patchcmd{\ttlh@hang}{\parindent\z@}{\parindent\z@\leavevmode}{}{}
 \patchcmd{\ttlh@hang}{\noindent}{}{}{}
-\makeatother
+\makeatother%titlesec旧版本无编号问题
+
+
+%tightly-packed lists
 \usepackage{mdwlist}
-\usepackage{verbatim}
-\usepackage{/Users/jinna/Desktop/study/github/Template/styles/zhfontcfg}%中文�
-\usepackage{/Users/jinna/Desktop/study/github/Template/styles/visionouclistings}
-\usepackage{/Users/jinna/Desktop/study/github/Template/styles/visionouccfg}
+\usepackage{verbatim}%comment命令的注释包
+\usepackage{styles/zhfontcfg}%中文包
+\usepackage{styles/visionouclistings}
+\usepackage{styles/visionouccfg}
+
+% head/foot
 \setlength{\headheight}{15pt}
+
 \fancyhf{}
-\setCJKmainfont{Adobe Kaiti Std} 
-\setCJKmonofont{Adobe Fangsong Std}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%settings
+\setCJKmainfont{Adobe Kaiti Std} %设置为楷体
+\setCJKmonofont{Adobe Fangsong Std}%仿宋
+%页眉页脚
+
+
 \makeatletter
 \def\headrule{{\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi%
-\color{BLUE}
-\hrule\@height 2.5pt \@width\headwidth\vskip1pt 
-\hrule\@height 0.5pt\@width\headwidth              
-\vskip-2\headrulewidth\vskip-1pt}        
-\vspace{6mm}}                
+\hrule\@height 2.5pt \@width\headwidth\vskip1pt%上面线为2.5pt粗  
+\hrule\@height 0.5pt\@width\headwidth  %下面0.5pt粗            
+\vskip-2\headrulewidth\vskip-1pt}      %两条线的距离        
+\vspace{6mm}}     %双线与下面正文之间的垂直间距              
 \makeatother         
+ 
 
+% graphics
 \graphicspath{{figures/}}
 \tikzset{
+    % Define standard arrow tip
     >=stealth',
+    % Define style for boxes
     punkt/.style={
            rectangle,
            rounded corners,
@@ -69,29 +105,34 @@
            text width=6.5em,
            minimum height=2em,
            text centered},
+    % Define arrow style
     pil/.style={
            ->,
            thick,
            shorten <=2pt,
            shorten >=2pt,},
+    % Define style for FlyZhyBall
     FlyZhyBall/.style={
       circle,
       minimum size=6mm,
       inner sep=0.5pt,
       ball color=red!50!blue,
       text=white,},
+    % Define style for FlyZhyRectangle
     FlyZhyRectangle/.style={
       rectangle,
       rounded corners,
       minimum size=6mm,
       ball color=red!50!blue,
       text=white,},
+    % Define style for zhyfly
     zhyfly/.style={
       rectangle,
       rounded corners,
       minimum size=6mm,
       ball color=red!25!blue,
       text=white,},
+    % Define style for new rectangle
     nrectangle/.style={
       rectangle,
       draw=#1!50,
@@ -168,6 +209,7 @@
 }%
 }
 
+%code
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
@@ -200,25 +242,29 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%设置标题页面               
-\chead{\color{GREY}meeting name}%页眉
-\cfoot{\color{GREY}time}%页脚 中
-\lfoot{\color{GREY}Jinna}%页脚 左
-\rfoot{\color{GREY}\thepage\ }%页脚 右
+%设置标题页面
+
+            
+\chead{\color{GREY}LATEX-模板}%页眉
+\cfoot{\color{GREY}August 2016}%页脚 中
+\lfoot{\color{GREY}DingHao}%页脚 左
+\rfoot{\color{GREY}$\cdot$\ Page \thepage\ }%页脚 右
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
-\usepackage{/Users/jinna/Desktop/study/github/Template/styles/lshort}
+
+\usepackage{styles/lshort}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
 \pagenumbering{roman}
 
-
 \pagestyle{fancy}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{center}
-\textbf{\LARGE{Meeting Report of meeting}} %标题加黑加大居中
+\textbf{\LARGE{Meeting Report}}
 \end{center}
 
 \begin{center}
@@ -228,9 +274,20 @@ Jinna Cui
 \begin{center}
 time
 \end{center}
-?????
+
+\section{\LaTeX 模板}
+
+\subsection{Testing}
+
+\subsubsection{testing}
+
+\begin{example}
+\LaTeX-using
+\end{example}
 
 
+详细版式更改请依照tex文档中使用包的简易说明，对欲修改项目进行查询～
 
+P.S. 欢迎更新～
 
 \end{document}
